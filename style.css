@@ -674,10 +674,11 @@ body.lock-scroll {
 }
 
 .envelope-info {
-  margin-top: 48px;
+  margin-top: 16px;
   font-size: 0.9rem;
   color: var(--dark-purple-light);
   font-weight: 600;
+  text-align: center;
 }
 
 /* 3D Envelope construction */
