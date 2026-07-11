@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, My Love! 🌸💖</title>
+  <!-- Google Fonts for elegant typography and hand-writing styling -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap"
+    rel="stylesheet">
+  <!-- FontAwesome for romantic/music icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="lock-scroll">
+
+  <!-- Background Music Control -->
+  <div id="audio-control" class="audio-control-btn" aria-label="Toggle Background Music">
+    <i class="fa-solid fa-music"></i>
+    <span class="music-tooltip">Play Music 🎵</span>
+  </div>
+
+  <!-- A persistent background canvas for floating hearts and blossom petals -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="sky-glow"></div>
+
+  <!-- SCREEN 1: Click the Surprise Box -->
+  <section id="surprise-screen" class="screen-container active">
+    <div class="surprise-content">
+      <div class="gift-box-wrapper">
+        <div class="sparkles-container"></div>
+        <!-- Beautiful SVG-based interactive 3D gift box -->
+        <div class="gift-box" id="birthday-gift-box">
+          <div class="gift-box-lid">
+            <div class="lid-overlay"></div>
+            <div class="box-ribbon-bow">
+              <svg viewBox="0 0 100 50" class="bow-svg">
+                <path d="M 50,35 C 30,10 10,20 25,35 C 33,40 45,35 50,35 C 55,35 67,40 75,35 C 90,20 70,10 50,35 Z"
+                  fill="#e85c7f" />
+                <circle cx="50" cy="35" r="7" fill="#c33d5d" />
+              </svg>
+            </div>
+          </div>
+          <div class="gift-box-body">
+            <div class="box-ribbon-vertical"></div>
+            <div class="box-ribbon-horizontal"></div>
+            <div class="box-inner-glow"></div>
+          </div>
+        </div>
+      </div>
+      <h2 class="surprise-prompt">You've received a surprise package! <br><span>Tap the box to open 🎁</span></h2>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: The Core Birthday Experience (Initially Hidden) -->
+  <section id="main-screen" class="screen-container hidden">
+    <div class="main-wrapper">
+
+      <!-- Elegant Interactive Header -->
+      <header class="header-card">
+        <h1 class="main-title">Happy Birthday, My Love! 🌸</h1>
+        <p class="sub-title">To the most beautiful girl in the world, who fills my heart with joy every single day. Here
+          is a little bouquet of memories and a letter for you... ✨💖</p>
+      </header>
+
+      <!-- Layout Grid containing Bouquet of Photos & Envelope Letter -->
+      <div class="celebration-grid">
+
+        <!-- Bouquet of Pictures -->
+        <article class="bouquet-showcase">
+          <h3 class="bouquet-title"><i class="fa-solid fa-seedling"></i> A Bouquet of Memories</h3>
+
+          <div id="photo-bouquet" class="bouquet-wrap">
+            <!-- Ribbon tie that ties the photos together at the base -->
+            <div class="bouquet-ribbon">
+              <svg viewBox="0 0 100 50" class="ribbon-bow-svg">
+                <path d="M 50,25 C 20,5 5,15 20,30 C 28,35 45,28 50,25 C 55,28 72,35 80,30 C 95,15 80,5 50,25 Z"
+                  fill="#f57c9f" />
+                <path d="M 45,27 L 30,50 L 38,50 Z M 55,27 L 70,50 L 62,50 Z" fill="#e06286" />
+                <circle cx="50" cy="25" r="6" fill="#c84568" />
+              </svg>
+            </div>
+
+            <!-- Stems of photos pointing to the base center -->
+            <div class="photo-stems">
+              <div class="stem stem-1"></div>
+              <div class="stem stem-2"></div>
+              <div class="stem stem-3"></div>
+              <div class="stem stem-4"></div>
+              <div class="stem stem-5"></div>
+              <div class="stem stem-6"></div>
+              <div class="stem stem-7"></div>
+              <div class="stem stem-8"></div>
+              <div class="stem stem-9"></div>
+              <div class="stem stem-10"></div>
+            </div>
+
+            <!-- Polaroids fanned out in a bouquet structure -->
+            <div class="polaroid-card card-1" data-index="1"
+              data-caption="A beautiful you during Hari Raya Aidilfitri.">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo1.jpg" alt="A Beautiful Bouquet of Flowers">
+              </div>
+              <p class="photo-caption">A beautiful you during Hari Raya Aidilfitri.</p>
+            </div>
+
+            <div class="polaroid-card card-2" data-index="2"
+              data-caption="A cute selfie of us at pantai Batu Feringghi.">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo2.jpg" alt="Couple Sunset Date">
+              </div>
+              <p class="photo-caption">A cute selfie of us at pantai Batu Feringghi.</p>
+            </div>
+
+            <div class="polaroid-card card-3" data-index="3"
+              data-caption="Thanks to the stranger who is willing to take pictures of us.">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo3.jpg" alt="Cozy Cafe Date">
+              </div>
+              <p class="photo-caption">Thanks to the stranger who is willing to take pictures of us.</p>
+            </div>
+
+            <div class="polaroid-card card-4" data-index="4"
+              data-caption="Remembering that sweet evening watching the warm sky side-by-side. 🌅">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo4.jpg" alt="Cherry Blossom Walk">
+              </div>
+              <p class="photo-caption">Remembering that sweet evening watching the warm sky side-by-side. 🌅</p>
+            </div>
+
+            <div class="polaroid-card card-5" data-index="5" data-caption="Great times during voluteering for VAC.">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo5.jpg" alt="Starlit Night Together">
+              </div>
+              <p class="photo-caption">Great times during voluteering for VAC.</p>
+            </div>
+
+            <div class="polaroid-card card-6" data-index="6" data-caption="Mirror selfie because why not?">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo6.jpg" alt="Cute Kittens snuggling">
+              </div>
+              <p class="photo-caption">Mirror selfie because why not?</p>
+            </div>
+
+            <div class="polaroid-card card-7" data-index="7" data-caption="The lighting covers every part of you.">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo7.jpg" alt="Adventure Together">
+              </div>
+              <p class="photo-caption">The lighting covers every part of you.</p>
+            </div>
+
+            <div class="polaroid-card card-8" data-index="8"
+              data-caption="Again, a cute aesthetic camera selfie wannabe of us.">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo8.jpg" alt="Laughing Together">
+              </div>
+              <p class="photo-caption">Again, a cute aesthetic camera selfie wannabe of us.</p>
+            </div>
+
+            <div class="polaroid-card card-9" data-index="9"
+              data-caption="Beautiful you shopping but you didn't tell me huh.">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo9.jpg" alt="Cozy Night In">
+              </div>
+              <p class="photo-caption">Beautiful you shopping but you didn't tell me huh.</p>
+            </div>
+
+            <div class="polaroid-card card-10" data-index="10"
+              data-caption="You during last year's Hari Raya Aidilfitri.">
+              <div class="card-pin">📌</div>
+              <div class="photo-container">
+                <img src="assets/images/photo10.jpg" alt="Sweet Memory">
+              </div>
+              <p class="photo-caption">You during last year's Hari Raya Aidilfitri.</p>
+            </div>
+
+          </div>
+          <p class="hint-text">✨ Tap on any photo to look closer ✨</p>
+        </article>
+
+        <!-- The Letter Envelope -->
+        <article class="letter-showcase">
+          <h3 class="letter-box-title"><i class="fa-solid fa-envelope-open-text"></i> A Letter For You</h3>
+          <div class="letter-envelope-wrap">
+
+            <div class="envelope" id="love-envelope">
+              <!-- Top Flap -->
+              <div class="envelope-flap"></div>
+              <!-- Bottom & Side Flaps creating pocket visual -->
+              <div class="envelope-pocket"></div>
+              <!-- Backplate -->
+              <div class="envelope-back"></div>
+
+              <!-- Letter Sheet sitting inside envelope pocket -->
+              <div class="letter-paper" id="love-letter">
+                <button class="letter-close-btn" id="letter-close-btn" aria-label="Close letter">&times;</button>
+                <!-- Floral Watercolor Header -->
+                <div class="letter-floral-border-top">
+                  <svg viewBox="0 0 400 40" SVG="http://www.w3.org/2000/svg">
+                    <!-- Elegant flower path outlines for borders -->
+                    <path d="M10,25 C12,18 20,20 22,25 C24,30 18,32 10,25 Z" fill="#f4b3c2" opacity="0.8" />
+                    <circle cx="16" cy="24" r="2.5" fill="#f5d63d" />
+                    <path d="M380,25 C382,18 390,20 392,25 C394,30 388,32 380,25 Z" fill="#eb8ea5" opacity="0.8" />
+                    <circle cx="386" cy="24" r="2.5" fill="#f5d63d" />
+                    <path d="M15,22 c0,0 10,-8 20,0 c10,8 15,2 25,-4" fill="none" stroke="#BA9FD4" stroke-width="1.5"
+                      opacity="0.6" />
+                    <path d="M385,22 c0,0 -10,-8 -20,0 c-10,8 -15,2 -25,-4" fill="none" stroke="#BA9FD4"
+                      stroke-width="1.5" opacity="0.6" />
+                  </svg>
+                </div>
+
+                <div class="letter-body">
+                  <span class="letter-salutation">My Dearest,</span>
+                  <p class="letter-paragraph">To my dearest Nur Dania Maisarah, happy birthday to you🤍.
+                    I wish that you will get all the happiness in the world, kita harap dia dapat apa yang dia nak
+                    capai,
+                    kita harap dia dapat duit banyak, dimurahkan rezeki dunia akhirat, semoga dia sentiasa dalam rahmat
+                    dan lindungan Allah🫶🏻.
+                  </p>
+                  <p class="letter-paragraph">Thanks for always trying to stay with me through all of the difficult
+                    times,
+                    thanks for all the gifts you have given me, thanks for all the efforts you have shown to love me, Im
+                    sorry because I always hurt you,
+                    kita minta maaf sebab selalu lukakan hati dia, kita minta maaf sebab takboleh nak jadi bf yang macam
+                    yang dia nak,
+                    Im sorry because i couldn't love you like you always wanted, Im sorry.
+                  </p>
+                  <p class="letter-paragraph">You are a good girl, you a strong one. Be brave, be beautiful, be the one
+                    who you wanna be🖤
+                    I will always want to see you bloom, even if it is not in my garden.</p>
+                  <span class="letter-valediction">Yours truly,</span>
+                  <span class="letter-signature">Hadi ❤️</span>
+                </div>
+
+                <!-- Floral Watercolor Footer -->
+                <div class="letter-floral-border-bottom">
+                  <svg viewBox="0 0 400 40" SVG="http://www.w3.org/2000/svg">
+                    <path d="M15,15 C17,8 25,10 27,15 C29,20 23,22 15,15 Z" fill="#c394cc" opacity="0.8" />
+                    <circle cx="21" cy="14" r="2.5" fill="#f5d63d" />
+                    <path d="M375,15 C377,8 385,10 387,15 C389,20 383,22 375,15 Z" fill="#f4b3c2" opacity="0.8" />
+                    <circle cx="381" cy="14" r="2.5" fill="#f5d63d" />
+                    <path d="M10,25 c5,-3 20,-10 35,-2" fill="none" stroke="#a1c99c" stroke-width="1" opacity="0.6" />
+                    <path d="M390,25 c-5,-3 -20,-10 -35,-2" fill="none" stroke="#a1c99c" stroke-width="1"
+                      opacity="0.6" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Wax Seal Sticker that starts the opening interaction -->
+              <div class="envelope-seal" id="envelope-wax-seal">
+                <div class="seal-inner">❤️</div>
+              </div>
+
+            </div>
+
+            <p class="envelope-info">✉️ Tap the heart seal to open the letter ✉️</p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- ====================================================
+           BIRTHDAY FINALE SECTION — Scroll-reveal celebration
+           ==================================================== -->
+      <section class="birthday-finale" id="birthday-finale">
+
+        <div class="finale-floating-hearts" aria-hidden="true">
+          <span class="float-heart" style="left:5%;  top:10%; --dur:7s;  --delay:0s;">🌸</span>
+          <span class="float-heart" style="left:15%; top:60%; --dur:9s;  --delay:1s;">💜</span>
+          <span class="float-heart" style="left:30%; top:20%; --dur:8s;  --delay:2s;">🌷</span>
+          <span class="float-heart" style="left:50%; top:75%; --dur:6s;  --delay:0.5s;">✨</span>
+          <span class="float-heart" style="left:65%; top:15%; --dur:10s; --delay:1.5s;">💖</span>
+          <span class="float-heart" style="left:80%; top:55%; --dur:7.5s;--delay:0.8s;">🌹</span>
+          <span class="float-heart" style="left:92%; top:30%; --dur:8.5s;--delay:2.5s;">💫</span>
+        </div>
+
+        <!-- Interactive birthday cake: blow out the candles to make a wish -->
+        <div class="finale-row">
+          <div class="cake-wish-wrap" data-reveal="up" data-delay="100">
+
+            <p class="cake-hint" id="cake-hint">🎂 Tap each candle to blow it out and make a wish</p>
+
+            <div class="cake-scene">
+              <div class="cake">
+                <div class="candles-row" id="candles-row">
+                  <button class="candle" type="button" data-candle="1" aria-label="Blow out candle 1">
+                    <span class="flame"></span>
+                    <span class="wick"></span>
+                  </button>
+                  <button class="candle" type="button" data-candle="2" aria-label="Blow out candle 2">
+                    <span class="flame"></span>
+                    <span class="wick"></span>
+                  </button>
+                  <button class="candle" type="button" data-candle="3" aria-label="Blow out candle 3">
+                    <span class="flame"></span>
+                    <span class="wick"></span>
+                  </button>
+                  <button class="candle" type="button" data-candle="4" aria-label="Blow out candle 4">
+                    <span class="flame"></span>
+                    <span class="wick"></span>
+                  </button>
+                  <button class="candle" type="button" data-candle="5" aria-label="Blow out candle 5">
+                    <span class="flame"></span>
+                    <span class="wick"></span>
+                  </button>
+                </div>
+                <div class="cake-layer cake-layer-top">
+                  <div class="frosting-drip"></div>
+                </div>
+                <div class="cake-layer cake-layer-bottom">
+                  <div class="frosting-drip"></div>
+                </div>
+                <div class="cake-plate"></div>
+              </div>
+            </div>
+
+            <!-- Wish message, revealed once every candle is blown out -->
+            <div class="finale-reveal-card" id="finale-reveal-card">
+              <span class="finale-big-title">Happy Birthday, My Love 🎂</span>
+              <p class="finale-subtitle">"You are my today, my always, and all of my tomorrows."</p>
+              <div class="finale-poem-inline">
+                <span class="poem-line">May your birthday be as lovely</span>
+                <span class="poem-line">as the smile you give me every day,</span>
+                <span class="poem-line">as warm as every hug you've shared,</span>
+                <span class="poem-line">Happy Birthday, My Love 💖</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+  </section>
+
+  <!-- Backdrop shown behind the letter when it pops out to float on screen -->
+  <div id="letter-backdrop" class="letter-modal-backdrop"></div>
+
+  <!-- LIGHTBOX MODAL: Zoom in on Polaroid Photo -->
+  <div id="lightbox-modal" class="modal-overlay hidden" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close photo view">&times;</button>
+      <div class="modal-img-container">
+        <img id="lightbox-img" src="" alt="Zoomed memory photo">
+      </div>
+      <div class="modal-caption-bar">
+        <p id="lightbox-caption"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
